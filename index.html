@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm clock</title>
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+   <center>
+    <div class="d-flex flex-column  pdiv justify-content-around align-items-center">
+        <h1 class="currentTime">CURRENT TIME</h1>
+        <div class="d-flex  px-4 py-4 align-items-center justify-content-around border-rounded" id="clock">
+        <h1 class="text-white" id="hourS"></h1>
+        <h1 class="text-white" id="colon">:</h1>
+        <h1 class="text-white" id="minuteS"></h1>
+        <sub id="secondS" class="text-white"></sub>
+    </div>
+    <div class="alarm-div d-flex align-items-center flex-column">
+        <h1 class="currentTime">SET ALARM</h1>
+        <div class="d-flex input-boxes form-group">
+            <input type="time" name="" class="form-group rounded-sm"  id="inputTime">
+            <input type="text" id="alarmNote" class="form-group rounded-sm" placeholder="What's this Alarm for?">
+            <button class="btn btn-success form-group rounded-sm" onclick="startFunctions()" id="setAlarm">SET</button>   
+        </div>
+        <p id="alarmList" class="py-2 px-4"></p>
+    </div>
+   </center>
+   
+</body>
+<script src="./js/script.js"></script>
+</html>
