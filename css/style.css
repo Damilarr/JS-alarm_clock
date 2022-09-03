@@ -107,7 +107,7 @@ body {
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
   }
-}
+}   
 @media screen and (max-width: 360px) {
   .input-boxes {
     flex-direction: column;

@@ -1,14 +1,40 @@
 let userAlarm = '';
-let alarmArray = '';
+let alarmArray = [];
 let note = '';
 let currentHour = '';
 let currentMinute = '';
 let timer = '';
 let mp3 = '';
+// let saveAlarmTime;
+// let getAlarmTime;
+// let saveAlarmDetail;
+// let getAlarmDetail;
+// let saveAlarmNote;
+// let getAlarmNote;
 function startFunctions() {
-  timer = setInterval(push, 1000);
-  alarmList.innerHTML = `<p class="showalarm px-2 py-1">Alarm set successfully  for : ${inputTime.value}</p>`;
+  if (inputTime.value && alarmNote.value) {
+    timer = setInterval(push, 1000);
+    alarmList.innerHTML = `<p class="showalarm px-2 py-1">Alarm set successfully  for : ${inputTime.value}</p>`;
+    // saveAlarmDetail = localStorage.setItem('alarmDetail', alarmList.innerHTML);
+    // saveAlarmTime = localStorage.setItem('alarmTime', inputTime.value);
+    // saveAlarmNote = localStorage.setItem('alarmNote', alarmNote.value);
+  } else {
+    alert('Please select a time and description for your alarm :)');
+  }
 }
+// getAlarmDetail = localStorage.getItem('alarmDetail');
+// getAlarmTime = localStorage.getItem('alarmTime');
+// getAlarmNote = localStorage.getItem('alarmNote');
+// localStorage.clear('alarmTime')
+// function checkAlarms() {
+//   if (getAlarmDetail && getAlarmTime) {
+//     alarmList.innerHTML = getAlarmDetail;
+//     inputTime.value = getAlarmTime;
+//     alarmNote.value = getAlarmNote;
+//     startFunctions();
+//   }
+// }
+// checkAlarms();
 function pauseAlarm() {
   mp3.pause();
   mp3.currentTime = 0;
@@ -21,8 +47,9 @@ function pauseAlarm() {
 }
 
 function playy() {
-  mp3 = new Audio('./audio/wty.mp3');
+  mp3 = new Audio('./audio/devils_staircase.mp3');
   mp3.play();
+  mp3.loop = true;
 }
 
 setInterval(function () {
@@ -44,17 +71,16 @@ function push() {
   currentMinute = date2.getMinutes();
   console.log(currentHour, currentMinute);
   userAlarm = inputTime.value;
-  let alarmArray = userAlarm.split(':');
+  alarmArray = userAlarm.split(':');
   if (
     Number(alarmArray[0]) == currentHour &&
     Number(alarmArray[1]) == currentMinute
   ) {
     console.log('TIME UP');
-    // playy();
+    playy();
     clearInterval(timer);
     alarmList.innerHTML = '';
     dispplay();
-    dispplay ? playy().loop() == true:console.log('false');
   }
 }
 
