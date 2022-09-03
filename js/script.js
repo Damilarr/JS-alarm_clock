@@ -47,7 +47,7 @@ function pauseAlarm() {
 }
 
 function playy() {
-  mp3 = new Audio('./audio/devils_staircase.mp3');
+  mp3 = new Audio('./audio/fur_elise.mp3');
   mp3.play();
   mp3.loop = true;
 }
